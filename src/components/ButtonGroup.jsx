@@ -1,12 +1,21 @@
 import Button from "./Button";
 
+const secondaryButtons = [
+  "Mark all as complete",
+  "Mark all as incomplete",
+  "reset all to initial",
+  "remove all items",
+];
 export default function ButtonGroup() {
   return (
     <div className="button-group">
-      <Button type="secondary"> Mark all as completed</Button>
-      <Button type="secondary"> Mark all as incomplete</Button>
-      <Button type="secondary"> reset all to initial</Button>
-      <Button type="secondary"> remove all items</Button>
+      {secondaryButtons.map((text) => {
+        return (
+          <Button key={text} type="secondary">
+            {text}
+          </Button>
+        );
+      })}
     </div>
   );
 }
