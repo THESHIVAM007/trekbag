@@ -18,6 +18,24 @@ function App() {
     const newItems = [...items, newItem];
     setItems(newItems);
   };
+
+  const handleDeleteItem = (id) => {
+    const newItems = items.filter((item) => item.id !== id);
+    setItems(newItems);
+  };
+
+  const handleToggleItem = (id) => {
+    const newItems = items.map((item) => {
+      if (item.id == id) {
+        return {
+          ...item,
+          packed: !item.packed,
+        };
+      }
+      return item;
+    });
+    setItems(newItems);
+  };
   const handleRemoveAllItems = () => {
     setItems([]);
   };
@@ -42,7 +60,11 @@ function App() {
       <BackgroundHeading />
       <main>
         <Header />
-        <ItemList items={items} />
+        <ItemList
+          handleDeleteItem={handleDeleteItem}
+          handleToggleItem={handleToggleItem}
+          items={items}
+        />
         <Sidebar
           handleAddItem={handleAddItem}
           handleRemoveAllItems={handleRemoveAllItems}
