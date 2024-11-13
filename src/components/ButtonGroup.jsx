@@ -1,11 +1,14 @@
 import Button from "./Button";
 
-export default function ButtonGroup({
-  handleRemoveAllItems,
-  handleResetToInitial,
-  handleMarkAllAsComplete,
-  handleMarkAllInAsComplete,
-}) {
+import { useItemsContext } from "../lib/hooks";
+
+export default function ButtonGroup() {
+  const {
+    handleMarkAllAsComplete,
+    handleMarkAllInAsComplete,
+    handleResetToInitial,
+    handleRemoveAllItems,
+  } = useItemsContext();
   const secondaryButtons = [
     {
       text: "Mark all as complete",
