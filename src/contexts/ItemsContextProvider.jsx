@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { initialItems } from "../lib/constants";
+// eslint-disable-next-line react-refresh/only-export-components
 export const ItemsContext = createContext();
 
 export default function ItemsContextProvider({ children }) {
